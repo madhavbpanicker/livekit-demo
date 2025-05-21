@@ -34,7 +34,11 @@ class Assistant(Agent):
         # https://docs.livekit.io/agents/plugins
         super().__init__(
             instructions=instructions,
-            stt = deepgram.STT(),
+            stt = deepgram.STT(
+                punctuate=True,
+                numerals=True,
+                profanity_filter=True,
+            ),
             llm= google.LLM(model="gemini-2.0-flash-001"),
             tts =  deepgram.TTS(),
             # use LiveKit's transformer-based turn detector
