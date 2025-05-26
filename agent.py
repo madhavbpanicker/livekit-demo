@@ -19,6 +19,7 @@ from livekit.plugins import (
 )
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 import asyncio
+import os
 
 
 load_dotenv(dotenv_path=".env.local")
@@ -28,10 +29,6 @@ with open("instructions.txt", "r", encoding="utf-8") as f:
 
 class Assistant(Agent):
     def __init__(self) -> None:
-        # This project is configured to use Deepgram STT, OpenAI LLM and Cartesia TTS plugins
-        # Other great providers exist like Cerebras, ElevenLabs, Groq, Play.ht, Rime, and more
-        # Learn more and pick the best one for your app:
-        # https://docs.livekit.io/agents/plugins
         super().__init__(
             instructions=instructions,
             stt = deepgram.STT(
