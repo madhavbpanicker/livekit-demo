@@ -18,7 +18,6 @@ from livekit.plugins import (
     silero,
 )
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
-import asyncio
 import os
 
 
