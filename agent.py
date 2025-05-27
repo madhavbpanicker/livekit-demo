@@ -20,7 +20,6 @@ from livekit.plugins import (
 from livekit.plugins.turn_detector.multilingual import MultilingualModel
 import os
 
-
 load_dotenv(dotenv_path=".env.local")
 logger = logging.getLogger("voice-agent")
 AUTH_TOKEN = os.getenv("AUTH_TOKEN")
@@ -30,7 +29,7 @@ with open("instructions.txt", "r", encoding="utf-8") as f:
 from livekit.agents import function_tool, RunContext
 import httpx
 
-
+#Below is the function to send a WhatsApp message using the provided mobile number. The message is sent to the specified mobile number using the WhatsApp API endpoint defined in the environment variable `WHATSAPP_URL`. The function uses an authorization token stored in the environment variable `AUTH_TOKEN` for authentication.
 @function_tool()
 async def send_whatsapp_message(
     context: RunContext,
