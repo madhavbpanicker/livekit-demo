@@ -23,13 +23,13 @@ import os
 
 load_dotenv(dotenv_path=".env.local")
 logger = logging.getLogger("voice-agent")
+AUTH_TOKEN = os.getenv("AUTH_TOKEN")
 with open("instructions.txt", "r", encoding="utf-8") as f:
     instructions = f.read()
 
 from livekit.agents import function_tool, RunContext
 import httpx
 
-AUTH_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJvcmJ5b3Rlc3QiLCJpYXQiOjE3NDgzMjE4ODEsImV4cCI6MTc0ODQ3MzA4MX0.c2rtsZifShqbyJY4yb28esJ2hty9GKeS0ew-yLe2yWY"  # Replace with your actual token
 
 @function_tool()
 async def send_whatsapp_message(
@@ -40,11 +40,11 @@ async def send_whatsapp_message(
     """
     Send a WhatsApp message to the given mobile number with the specified message and session ID.
     """
-    url = "https://my.buloke.com/o4ecommunicate/api/whatsapp/sendMsg"  # Replace with your actual endpoint
+    url = os.getenv("WHATSAPP_URL")  # Replace with your actual endpoint
     payload = {
         "mobile": mobile,
         "msg": msg,
-        "session": "orbyosfa1",
+        "session": os.getenv("SESSION_NAME"),
     }
     headers = {
         "Authorization": f"Bearer {AUTH_TOKEN}",
