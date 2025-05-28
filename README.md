@@ -69,3 +69,11 @@ Run the agent with the following command when using a frontend application.
 ```console
 python3 agent.py dev
 ```
+
+Run the frontend after updating `/frontend/.env`.
+
+Go to front end and run:
+
+```console
+npm run dev
+```
