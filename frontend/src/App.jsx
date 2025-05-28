@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import LiveKitModal from './components/LivekitModal';
 
 function App() {
   const [showSupport, setShowSupport] = useState(false);
@@ -20,6 +21,7 @@ function App() {
         <p>Your one-stop solution for kitchen design and renovation.</p>
         <button className='support-button' onClick={handleSupportClick}>Talk to An Agent!</button>
       </main>
+      {showSupport && <LiveKitModal setShowSupport={setShowSupport} />} 
     </div>
   )
 }
