@@ -55,11 +55,12 @@ const LiveKitModal = ({ setShowSupport }) => {
           ) : (
             <LiveKitRoom
               serverUrl={import.meta.env.VITE_LIVEKIT_URL}
-              token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDg0MzAzNzksImlzcyI6IkFQSVZZY3N4eDdhR0NxeiIsIm5iZiI6MTc0ODQyOTQ3OSwic3ViIjoibWFkaGF2IiwidmlkZW8iOnsiY2FuUHVibGlzaCI6dHJ1ZSwiY2FuUHVibGlzaERhdGEiOnRydWUsImNhblN1YnNjcmliZSI6dHJ1ZSwicm9vbSI6InJvb20xIiwicm9vbUpvaW4iOnRydWV9fQ.t5J9z7vK2mDEjjD6JEQjS5YYjAa7bJQwNyXntOz6kcY"
+              token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDg0MzQxNzcsImlzcyI6IkFQSVZZY3N4eDdhR0NxeiIsIm5iZiI6MTc0ODQzMzI3Nywic3ViIjoibWFkaGF2IiwidmlkZW8iOnsiY2FuUHVibGlzaCI6dHJ1ZSwiY2FuUHVibGlzaERhdGEiOnRydWUsImNhblN1YnNjcmliZSI6dHJ1ZSwicm9vbSI6InJvb20iLCJyb29tSm9pbiI6dHJ1ZX19.4hAeoerulXEAZPeOl4ERS_JrHcUzpJQkbAXnuvdTR6U"
               connect={true}
               video={false}
               audio={true}
               onDisconnected={() => {
+                console.log("[LiveKit] Disconnected", reason);
                 setShowSupport(false);
                 setIsSubmittingName(true);
               }}
