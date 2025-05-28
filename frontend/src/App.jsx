@@ -18,7 +18,7 @@ function App() {
       <main className='main'>
         <h1>Welcome to Jade Cucine</h1>
         <p>Your one-stop solution for kitchen design and renovation.</p>
-        <button className='support-button' onClick={}>Talk to An Agent!</button>
+        <button className='support-button' onClick={handleSupportClick}>Talk to An Agent!</button>
       </main>
     </div>
   )
